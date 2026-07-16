@@ -215,7 +215,7 @@ export default function Home({ onOpenModal }) {
                   {/* Clean Dynamic Cover Photo from Instagram Media Redirect */}
                   <img 
                     src={reel.thumbnail} 
-                    alt={reel.title} 
+                    alt="" 
                     className="w-100 h-100 position-absolute top-0 start-0"
                     style={{ objectFit: 'cover', minHeight: '420px', transition: 'transform 0.4s ease', zIndex: 1 }} 
                   />
