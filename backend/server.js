@@ -477,6 +477,44 @@ app.get('/api/admin/trial-requests', async (req, res) => {
   }
 });
 
+// Route: Proxy Instagram Reel Thumbnail Image
+app.get('/api/reels/thumbnail/:embedId', (req, res) => {
+  const { embedId } = req.params;
+  const targetUrl = `https://www.instagram.com/p/${embedId}/media/?size=l`;
+
+  const requestOptions = {
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
+    }
+  };
+
+  const https = require('https');
+
+  // Fetch the initial URL to follow the 302 redirect
+  https.get(targetUrl, requestOptions, (response) => {
+    if (response.statusCode === 302 && response.headers.location) {
+      // Fetch the actual redirected image from Meta CDN
+      https.get(response.headers.location, (imgResponse) => {
+        if (imgResponse.statusCode === 200) {
+          res.setHeader('Content-Type', imgResponse.headers['content-type'] || 'image/jpeg');
+          res.setHeader('Cache-Control', 'public, max-age=86400'); // Cache for 1 day
+          imgResponse.pipe(res);
+        } else {
+          res.status(imgResponse.statusCode).send('Failed to fetch image data.');
+        }
+      }).on('error', (err) => {
+        console.error('Error fetching CDN image:', err);
+        res.status(500).send('CDN Image fetch error.');
+      });
+    } else {
+      res.status(response.statusCode).send('Failed to locate redirect target.');
+    }
+  }).on('error', (err) => {
+    console.error('Error requesting Instagram Media URL:', err);
+    res.status(500).send('Instagram Media request error.');
+  });
+});
+
 // Start API Server
 app.listen(PORT, () => {
   console.log(`Yoddha Academy API Server is running on port ${PORT}`);
