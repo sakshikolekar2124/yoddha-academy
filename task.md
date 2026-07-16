@@ -1,0 +1,31 @@
+# Task List: Yoddha Academy (React & Node.js)
+
+- [x] Initialize project directories and packages
+  - [x] Initialize Vite React frontend app (`frontend/`)
+  - [x] Create backend directory and initialize `package.json` (`backend/`)
+  - [x] Install backend packages (`express`, `cors`, `sqlite3`)
+- [x] Move and setup visual assets
+  - [x] Create `frontend/public/images/` directory
+  - [x] Move user's logo (`logo.jpg`) and all training/hero images to `frontend/public/images/`
+- [x] Implement backend Node.js server
+  - [x] Write `backend/database.js` to setup SQLite, tables, and preseed schedule
+  - [x] Write `backend/server.js` to create Express endpoints (`GET /api/schedule`, `POST /api/submit-trial`)
+- [x] Implement frontend React app
+  - [x] Setup API proxy in `frontend/vite.config.js`
+  - [x] Load Bootstrap and FontAwesome CDNs in `frontend/index.html`
+  - [x] Write global CSS styling in `frontend/src/App.css` (themed with logo colors: maroon, gold, dark gray)
+  - [x] Create React components under `frontend/src/components/`
+    - [x] `Navbar.jsx` (incorporating logo and title)
+    - [x] `Hero.jsx` (tagline, metrics)
+    - [x] `Philosophy.jsx` (grit, honor, discipline cards)
+    - [x] `Disciplines.jsx` (Lathi Kathi, MMA, Wrestling, Strength)
+    - [x] `Schedule.jsx` (fetch API, filters)
+    - [x] `Pricing.jsx` (discount toggle)
+    - [x] `Testimonials.jsx` (carousel)
+    - [x] `Contact.jsx` (mock map)
+    - [x] `Footer.jsx` (social links)
+    - [x] `TrialModal.jsx` (form submission to `/api/submit-trial`)
+  - [x] Connect components in `frontend/src/App.jsx`
+- [x] Verify full-stack integration
+  - [x] Launch backend and frontend development servers
+  - [x] Test API responses and SQLite database entries

@@ -1,0 +1,14 @@
+/* Custom reset to prevent default Vite template style overrides */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0c0507;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
