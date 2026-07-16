@@ -1693,3 +1693,38 @@ input:checked + .slider-yoddha::before {
     height: 32px !important;
   }
 }
+
+/* Custom Header Order Layout Controls (Toggler left, Brand center, Actions right) */
+@media (max-width: 991.98px) {
+  .navbar-toggler {
+    order: 1 !important;
+  }
+  .navbar-brand-yoddha {
+    order: 2 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    justify-content: center !important;
+  }
+  .navbar-actions {
+    order: 3 !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+  .navbar-collapse {
+    order: 4 !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-brand-yoddha {
+    order: 1 !important;
+  }
+  .navbar-collapse {
+    order: 2 !important;
+  }
+  .navbar-actions {
+    order: 3 !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+}
