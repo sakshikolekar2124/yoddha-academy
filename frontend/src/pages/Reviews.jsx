@@ -7,6 +7,7 @@ export default function Reviews() {
   const [comment, setComment] = useState('');
   const [loading, setLoading] = useState(true);
   const [formMsg, setFormMsg] = useState('');
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const fetchReviews = async () => {
     try {
@@ -24,6 +25,14 @@ export default function Reviews() {
   useEffect(() => {
     fetchReviews();
   }, []);
+
+  useEffect(() => {
+    if (reviews.length <= 1) return;
+    const interval = setInterval(() => {
+      setActiveIndex(prev => (prev + 1) % reviews.length);
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [reviews]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -208,10 +217,13 @@ export default function Reviews() {
                     <div>No reviews submitted yet. Be the first!</div>
                   </div>
                 ) : (
-                  <div className="reviews-marquee-container">
-                    <div className={`reviews-marquee-inner ${reviews.length >= 3 ? 'animate-marquee' : ''}`}>
-                      {reviews.map(rev => (
-                        <div key={`feed1-${rev.id}`} className="p-4 mb-3 rounded border border-light bg-black bg-opacity-30">
+                  <div className="reviews-carousel-wrapper">
+                    {reviews.map((rev, idx) => (
+                      <div 
+                        key={rev.id} 
+                        className={`review-carousel-item ${idx === activeIndex ? 'active' : ''}`}
+                      >
+                        <div className="p-4 rounded border border-light bg-black bg-opacity-30">
                           <div className="d-flex justify-content-between align-items-center mb-3 border-bottom border-light pb-2">
                             <div>
                               <h4 className="h6 fw-bold text-white mb-1">{rev.fullName}</h4>
@@ -226,26 +238,8 @@ export default function Reviews() {
                             "{rev.comment}"
                           </p>
                         </div>
-                      ))}
-                      {/* Duplicate for infinite loop */}
-                      {reviews.length >= 3 && reviews.map(rev => (
-                        <div key={`feed2-${rev.id}`} className="p-4 mb-3 rounded border border-light bg-black bg-opacity-30">
-                          <div className="d-flex justify-content-between align-items-center mb-3 border-bottom border-light pb-2">
-                            <div>
-                              <h4 className="h6 fw-bold text-white mb-1">{rev.fullName}</h4>
-                              <div className="small">{renderStars(rev.rating)}</div>
-                            </div>
-                            <span className="text-secondary small fs-7">
-                              <i className="fa-regular fa-calendar-check me-2 text-warning"></i>
-                              {new Date(rev.createdAt).toLocaleDateString()}
-                            </span>
-                          </div>
-                          <p className="text-secondary small mb-0" style={{ whiteSpace: 'pre-wrap' }}>
-                            "{rev.comment}"
-                          </p>
-                        </div>
-                      ))}
-                    </div>
+                      </div>
+                    ))}
                   </div>
                 )}
               </div>

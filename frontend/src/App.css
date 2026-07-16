@@ -1694,53 +1694,30 @@ input:checked + .slider-yoddha::before {
   }
 }
 
-/* Infinite Vertical Reviews Marquee Styling */
-.reviews-marquee-container {
-  max-height: 520px;
-  overflow: hidden;
+/* Single-Review Testimonial Carousel Styling */
+.reviews-carousel-wrapper {
   position: relative;
+  min-height: 200px;
+  overflow: hidden;
   padding: 10px 0;
 }
 
-/* Beautiful fading gradient masks at top and bottom */
-.reviews-marquee-container::before,
-.reviews-marquee-container::after {
-  content: '';
+.review-carousel-item {
   position: absolute;
-  left: 0;
-  right: 0;
-  height: 60px;
-  z-index: 3;
-  pointer-events: none;
-}
-.reviews-marquee-container::before {
   top: 0;
-  background: linear-gradient(to bottom, var(--bg-primary) 0%, rgba(10, 4, 6, 0) 100%);
-}
-.reviews-marquee-container::after {
-  bottom: 0;
-  background: linear-gradient(to top, var(--bg-primary) 0%, rgba(10, 4, 6, 0) 100%);
-}
-
-.reviews-marquee-inner {
-  display: flex;
-  flex-direction: column;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(20px) scale(0.96);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 1;
 }
 
-.reviews-marquee-inner.animate-marquee {
-  animation: verticalMarquee 35s linear infinite;
-}
-
-/* Pause animation on hover / touch so users can read */
-.reviews-marquee-container:hover .reviews-marquee-inner.animate-marquee {
-  animation-play-state: paused;
-}
-
-@keyframes verticalMarquee {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-50%);
-  }
+.review-carousel-item.active {
+  position: relative;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  z-index: 2;
 }
