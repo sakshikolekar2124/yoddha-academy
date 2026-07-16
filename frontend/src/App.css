@@ -1694,30 +1694,28 @@ input:checked + .slider-yoddha::before {
   }
 }
 
-/* Single-Review Testimonial Carousel Styling */
+/* Horizontal Swipe Testimonial Carousel Styling */
 .reviews-carousel-wrapper {
-  position: relative;
-  min-height: 200px;
-  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
   padding: 10px 0;
+  gap: 1.5rem;
+}
+.reviews-carousel-wrapper::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome/Safari */
 }
 
 .review-carousel-item {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  opacity: 0;
-  transform: translateX(40px);
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.review-carousel-item.active {
-  position: relative;
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
-  z-index: 2;
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  position: relative !important;
+  opacity: 1 !important;
+  transform: none !important;
+  pointer-events: auto !important;
+  z-index: 1 !important;
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 export default function Reviews() {
   const [reviews, setReviews] = useState([]);
@@ -8,6 +8,7 @@ export default function Reviews() {
   const [loading, setLoading] = useState(true);
   const [formMsg, setFormMsg] = useState('');
   const [activeIndex, setActiveIndex] = useState(0);
+  const wrapperRef = useRef(null);
 
   const fetchReviews = async () => {
     try {
@@ -29,7 +30,17 @@ export default function Reviews() {
   useEffect(() => {
     if (reviews.length <= 1) return;
     const interval = setInterval(() => {
-      setActiveIndex(prev => (prev + 1) % reviews.length);
+      setActiveIndex(prev => {
+        const next = (prev + 1) % reviews.length;
+        if (wrapperRef.current) {
+          const cardWidth = wrapperRef.current.clientWidth;
+          wrapperRef.current.scrollTo({
+            left: next * cardWidth,
+            behavior: 'smooth'
+          });
+        }
+        return next;
+      });
     }, 4500);
     return () => clearInterval(interval);
   }, [reviews]);
@@ -217,11 +228,11 @@ export default function Reviews() {
                     <div>No reviews submitted yet. Be the first!</div>
                   </div>
                 ) : (
-                  <div className="reviews-carousel-wrapper">
-                    {reviews.map((rev, idx) => (
+                  <div className="reviews-carousel-wrapper" ref={wrapperRef}>
+                    {reviews.map((rev) => (
                       <div 
                         key={rev.id} 
-                        className={`review-carousel-item ${idx === activeIndex ? 'active' : ''}`}
+                        className="review-carousel-item"
                       >
                         <div className="p-4 rounded border border-light bg-black bg-opacity-30">
                           <div className="d-flex justify-content-between align-items-center mb-3 border-bottom border-light pb-2">
