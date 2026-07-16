@@ -1693,3 +1693,21 @@ input:checked + .slider-yoddha::before {
     height: 32px !important;
   }
 }
+
+/* Reviews Page Feed Scrollbar Styling */
+.reviews-feed-wrapper {
+  max-height: 580px;
+  overflow-y: auto;
+  padding-right: 0.8rem;
+}
+.reviews-feed-wrapper::-webkit-scrollbar {
+  width: 5px;
+}
+.reviews-feed-wrapper::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+.reviews-feed-wrapper::-webkit-scrollbar-thumb {
+  background: var(--accent-gold);
+  border-radius: 4px;
+}
