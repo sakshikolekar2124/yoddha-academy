@@ -30,8 +30,18 @@ export default function Navbar({ onOpenModal, user, onLogout }) {
 
   return (
     <nav className={`navbar navbar-expand-lg navbar-custom sticky-top ${scrolled ? 'scrolled' : ''}`}>
-      <div className="container px-4 position-relative d-flex align-items-center justify-content-between">
+      <div className="container px-4">
         
+        {/* Brand Logo + Text */}
+        <NavLink 
+          className="navbar-brand navbar-brand-yoddha" 
+          to={getLogoTarget()} 
+          onClick={closeNavbar}
+        >
+          <img src="/images/logo.jpg" alt="Yoddha Academy Logo" className="brand-logo-img" />
+          YODDHA<span>ACADEMY</span>
+        </NavLink>
+
         {/* Toggle Button */}
         <button 
           className="navbar-toggler border-0 text-white px-0" 
@@ -44,32 +54,6 @@ export default function Navbar({ onOpenModal, user, onLogout }) {
         >
           <i className="fa-solid fa-bars fa-lg"></i>
         </button>
-
-        {/* Brand Logo + Text */}
-        <NavLink 
-          className="navbar-brand navbar-brand-yoddha" 
-          to={getLogoTarget()} 
-          onClick={closeNavbar}
-        >
-          <img src="/images/logo.jpg" alt="Yoddha Academy Logo" className="brand-logo-img" />
-          YODDHA<span>ACADEMY</span>
-        </NavLink>
-
-        {/* Sign In / User Actions */}
-        <div className="navbar-actions">
-          {user ? (
-            <div className="d-flex align-items-center gap-2">
-              <span className="text-secondary small me-2 d-none d-lg-inline">Hi, <strong>{user.fullName.split(' ')[0]}</strong></span>
-              <button className="btn btn-sm btn-yoddha-outline px-3 text-uppercase" onClick={onLogout}>
-                Logout
-              </button>
-            </div>
-          ) : (
-            <NavLink className="btn btn-sm btn-yoddha-primary px-3 text-uppercase text-white" to="/login" onClick={closeNavbar}>
-              Sign In
-            </NavLink>
-          )}
-        </div>
 
         {/* Collapsible Menu Links */}
         <div className="collapse navbar-collapse" id="yoddhaNavbar">
@@ -106,6 +90,22 @@ export default function Navbar({ onOpenModal, user, onLogout }) {
               </li>
             )}
           </ul>
+
+          {/* Sign In / User Actions */}
+          <div className="navbar-actions mt-3 mt-lg-0">
+            {user ? (
+              <div className="d-flex align-items-center gap-2">
+                <span className="text-secondary small me-2">Hi, <strong>{user.fullName.split(' ')[0]}</strong></span>
+                <button className="btn btn-sm btn-yoddha-outline px-3 text-uppercase" onClick={onLogout}>
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <NavLink className="btn btn-sm btn-yoddha-primary px-3 text-uppercase text-white" to="/login" onClick={closeNavbar}>
+                Sign In
+              </NavLink>
+            )}
+          </div>
         </div>
       </div>
     </nav>

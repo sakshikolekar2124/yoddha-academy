@@ -1683,34 +1683,6 @@ input:checked + .slider-yoddha::before {
   display: none; /* Hide scrollbar for Chrome/Safari/Opera */
 }
 
-/* Custom Header Order Layout Controls (Toggler left, Brand center, Actions right) */
-@media (max-width: 991.98px) {
-  .navbar-custom > .container {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-  }
-  .navbar-toggler {
-    order: 1 !important;
-  }
-  .navbar-brand-yoddha {
-    order: 2 !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    justify-content: center !important;
-  }
-  .navbar-actions {
-    order: 3 !important;
-    display: flex !important;
-    align-items: center !important;
-  }
-  .navbar-collapse {
-    order: 4 !important;
-  }
-}
-
 @media (max-width: 576px) {
   .navbar-brand-yoddha {
     font-size: 1.15rem !important;
@@ -1719,23 +1691,5 @@ input:checked + .slider-yoddha::before {
   .brand-logo-img {
     width: 32px !important;
     height: 32px !important;
-  }
-  .navbar-actions .btn {
-    font-size: 0.72rem !important;
-    padding: 0.35rem 0.65rem !important;
-  }
-}
-
-@media (min-width: 992px) {
-  .navbar-brand-yoddha {
-    order: 1 !important;
-  }
-  .navbar-collapse {
-    order: 2 !important;
-  }
-  .navbar-actions {
-    order: 3 !important;
-    display: flex !important;
-    align-items: center !important;
   }
 }
