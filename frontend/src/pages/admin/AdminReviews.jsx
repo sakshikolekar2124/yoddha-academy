@@ -9,7 +9,7 @@ export default function AdminReviews({ user, onLoginSuccess }) {
   const fetchReviews = async () => {
     try {
       setLoading(true);
-      const res = await fetch('/api/reviews');
+      const res = await fetch((window.API_BASE || '') + '/api/reviews');
       const data = await res.json();
       setReviews(data);
       setLoading(false);
@@ -27,7 +27,7 @@ export default function AdminReviews({ user, onLoginSuccess }) {
 
   const handleDeleteReview = (reviewId) => {
     if (window.confirm('Are you sure you want to delete this customer review permanently?')) {
-      fetch(`/api/admin/reviews/${reviewId}`, {
+      fetch(`${window.API_BASE || ''}/api/admin/reviews/${reviewId}`, {
         method: 'DELETE'
       })
         .then(res => res.json())

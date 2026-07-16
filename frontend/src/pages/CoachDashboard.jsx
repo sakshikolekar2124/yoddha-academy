@@ -25,7 +25,7 @@ export default function CoachDashboard({ user }) {
       setLoading(true);
 
       // Fetch all classes and filter for coach
-      const classesRes = await fetch('/api/schedule');
+      const classesRes = await fetch((window.API_BASE || '') + '/api/schedule');
       const classesData = await classesRes.json();
       // Match by discipline or coach name
       const coachClasses = classesData.filter(c => 
@@ -34,7 +34,7 @@ export default function CoachDashboard({ user }) {
       setClasses(coachClasses);
 
       // Fetch Workouts uploaded for this discipline
-      const workoutsRes = await fetch(`/api/coach/workouts/${user.discipline}`);
+      const workoutsRes = await fetch(`${window.API_BASE || ''}/api/coach/workouts/${user.discipline}`);
       const workoutsData = await workoutsRes.json();
       setWorkouts(workoutsData);
 
@@ -61,7 +61,7 @@ export default function CoachDashboard({ user }) {
       details: workoutDetails
     };
 
-    fetch('/api/coach/workouts', {
+    fetch((window.API_BASE || '') + '/api/coach/workouts', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newWorkout)

@@ -18,7 +18,7 @@ export default function AdminCourses({ user, onLoginSuccess }) {
   const fetchClasses = async () => {
     try {
       setLoading(true);
-      const res = await fetch('/api/schedule');
+      const res = await fetch((window.API_BASE || '') + '/api/schedule');
       const data = await res.json();
       setClasses(data);
       setLoading(false);
@@ -47,7 +47,7 @@ export default function AdminCourses({ user, onLoginSuccess }) {
       discipline: classDiscipline
     };
 
-    fetch('/api/admin/schedule', {
+    fetch((window.API_BASE || '') + '/api/admin/schedule', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newClass)
@@ -73,7 +73,7 @@ export default function AdminCourses({ user, onLoginSuccess }) {
 
   const handleDeleteClass = (classId) => {
     if (window.confirm('Are you sure you want to remove this class slot?')) {
-      fetch(`/api/admin/schedule/${classId}`, {
+      fetch(`${window.API_BASE || ''}/api/admin/schedule/${classId}`, {
         method: 'DELETE'
       })
         .then(res => res.json())

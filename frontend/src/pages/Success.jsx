@@ -5,7 +5,7 @@ export default function Success() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/achievements')
+    fetch((window.API_BASE || '') + '/api/achievements')
       .then(res => res.json())
       .then(data => {
         setAchievements(data);

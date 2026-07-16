@@ -5,7 +5,7 @@ export default function Gallery() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/gallery')
+    fetch((window.API_BASE || '') + '/api/gallery')
       .then(res => res.json())
       .then(data => {
         setGalleryItems(data);

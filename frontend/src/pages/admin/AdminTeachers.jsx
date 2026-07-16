@@ -8,7 +8,7 @@ export default function AdminTeachers({ user, onLoginSuccess }) {
 
   useEffect(() => {
     if (user && user.role === 'admin') {
-      fetch('/api/admin/users')
+      fetch((window.API_BASE || '') + '/api/admin/users')
         .then(res => res.json())
         .then(data => {
           setTeachers(data.filter(u => u.role === 'coach'));

@@ -17,7 +17,7 @@ export default function AdminSuccess({ user, onLoginSuccess }) {
   const fetchAchievements = async () => {
     try {
       setLoading(true);
-      const res = await fetch('/api/achievements');
+      const res = await fetch((window.API_BASE || '') + '/api/achievements');
       const data = await res.json();
       setAchievements(data);
       setLoading(false);
@@ -65,7 +65,7 @@ export default function AdminSuccess({ user, onLoginSuccess }) {
       state: stateDetails
     };
 
-    const url = editingId ? `/api/admin/achievements/${editingId}` : '/api/admin/achievements';
+    const url = editingId ? `/api/admin/achievements/${editingId}` : (window.API_BASE || '') + '/api/admin/achievements';
     const method = editingId ? 'PUT' : 'POST';
 
     fetch(url, {
@@ -96,7 +96,7 @@ export default function AdminSuccess({ user, onLoginSuccess }) {
 
   const handleDeleteAchievement = (id) => {
     if (window.confirm('Are you sure you want to delete this medalist card?')) {
-      fetch(`/api/admin/achievements/${id}`, {
+      fetch(`${window.API_BASE || ''}/api/admin/achievements/${id}`, {
         method: 'DELETE'
       })
         .then(res => res.json())

@@ -20,7 +20,7 @@ export default function AdminNewStudent({ user, onLoginSuccess }) {
       password: studentPassword
     };
 
-    fetch('/api/admin/student', {
+    fetch((window.API_BASE || '') + '/api/admin/student', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newStudent)

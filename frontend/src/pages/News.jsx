@@ -5,7 +5,7 @@ export default function News() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/news')
+    fetch((window.API_BASE || '') + '/api/news')
       .then(res => res.json())
       .then(data => {
         setNewsList(data);

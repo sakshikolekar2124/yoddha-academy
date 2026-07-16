@@ -8,7 +8,7 @@ export default function AdminEnquiry({ user, onLoginSuccess }) {
 
   useEffect(() => {
     if (user && user.role === 'admin') {
-      fetch('/api/admin/trial-requests')
+      fetch((window.API_BASE || '') + '/api/admin/trial-requests')
         .then(res => res.json())
         .then(data => {
           setRequests(data);

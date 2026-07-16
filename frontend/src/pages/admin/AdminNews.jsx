@@ -18,7 +18,7 @@ export default function AdminNews({ user, onLoginSuccess }) {
   const fetchNews = async () => {
     try {
       setLoading(true);
-      const res = await fetch('/api/news');
+      const res = await fetch((window.API_BASE || '') + '/api/news');
       const data = await res.json();
       setNews(data);
       setLoading(false);
@@ -68,7 +68,7 @@ export default function AdminNews({ user, onLoginSuccess }) {
       description: newsDesc
     };
 
-    const url = editingNewsId ? `/api/admin/news/${editingNewsId}` : '/api/admin/news';
+    const url = editingNewsId ? `/api/admin/news/${editingNewsId}` : (window.API_BASE || '') + '/api/admin/news';
     const method = editingNewsId ? 'PUT' : 'POST';
 
     fetch(url, {
@@ -100,7 +100,7 @@ export default function AdminNews({ user, onLoginSuccess }) {
 
   const handleDeleteNews = (newsId) => {
     if (window.confirm('Are you sure you want to delete this news article?')) {
-      fetch(`/api/admin/news/${newsId}`, {
+      fetch(`${window.API_BASE || ''}/api/admin/news/${newsId}`, {
         method: 'DELETE'
       })
         .then(res => res.json())

@@ -14,7 +14,7 @@ export default function AdminGallery({ user, onLoginSuccess }) {
   const fetchGallery = async () => {
     try {
       setLoading(true);
-      const res = await fetch('/api/gallery');
+      const res = await fetch((window.API_BASE || '') + '/api/gallery');
       const data = await res.json();
       setGallery(data);
       setLoading(false);
@@ -61,7 +61,7 @@ export default function AdminGallery({ user, onLoginSuccess }) {
       description: ''
     };
 
-    const url = editingGalleryId ? `/api/gallery/${editingGalleryId}` : '/api/gallery';
+    const url = editingGalleryId ? `/api/gallery/${editingGalleryId}` : (window.API_BASE || '') + '/api/gallery';
     const method = editingGalleryId ? 'PUT' : 'POST';
 
     fetch(url, {
@@ -90,7 +90,7 @@ export default function AdminGallery({ user, onLoginSuccess }) {
 
   const handleDeleteGallery = (photoId) => {
     if (window.confirm('Are you sure you want to delete this gallery photo?')) {
-      fetch(`/api/gallery/${photoId}`, {
+      fetch(`${window.API_BASE || ''}/api/gallery/${photoId}`, {
         method: 'DELETE'
       })
         .then(res => res.json())

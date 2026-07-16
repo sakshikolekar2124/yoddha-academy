@@ -11,7 +11,7 @@ export default function AdminGateway({ user, onLoginSuccess, children }) {
     setAdminLoading(true);
     setAdminErrorMsg('');
 
-    fetch('/api/auth/login', {
+    fetch((window.API_BASE || '') + '/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: adminEmail, password: adminPassword })

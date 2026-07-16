@@ -21,7 +21,7 @@ export default function ContactPage({ onSuccess }) {
       experience
     };
 
-    fetch('/api/submit-trial', {
+    fetch((window.API_BASE || '') + '/api/submit-trial', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(requestBody)

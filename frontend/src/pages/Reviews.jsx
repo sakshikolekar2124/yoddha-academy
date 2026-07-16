@@ -11,7 +11,7 @@ export default function Reviews() {
   const fetchReviews = async () => {
     try {
       setLoading(true);
-      const res = await fetch('/api/reviews');
+      const res = await fetch((window.API_BASE || '') + '/api/reviews');
       const data = await res.json();
       setReviews(data);
       setLoading(false);
@@ -35,7 +35,7 @@ export default function Reviews() {
       comment
     };
 
-    fetch('/api/reviews', {
+    fetch((window.API_BASE || '') + '/api/reviews', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newReview)

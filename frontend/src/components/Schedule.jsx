@@ -6,7 +6,7 @@ export default function Schedule({ onOpenModal }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/schedule')
+    fetch((window.API_BASE || '') + '/api/schedule')
       .then(res => res.json())
       .then(data => {
         setClasses(data);

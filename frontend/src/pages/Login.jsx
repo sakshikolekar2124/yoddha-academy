@@ -16,7 +16,7 @@ export default function Login({ onLoginSuccess }) {
 
     const requestBody = { email, password };
 
-    fetch('/api/auth/login', {
+    fetch((window.API_BASE || '') + '/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(requestBody)
