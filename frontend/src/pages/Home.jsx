@@ -245,7 +245,7 @@ export default function Home({ onOpenModal }) {
           {/* More button */}
           <div className="text-center mt-5" data-aos="fade-up">
             <a 
-              href="https://www.instagram.com/yoddhaacademy" 
+              href="https://www.instagram.com/yoddhaacademy.india?igsh=MWx4ODA2cmNocnJ6MA==" 
               target="_blank" 
               rel="noreferrer" 
               className="btn btn-yoddha-primary px-5 py-3 text-uppercase fw-bold letter-spacing-1 d-inline-flex align-items-center gap-2"

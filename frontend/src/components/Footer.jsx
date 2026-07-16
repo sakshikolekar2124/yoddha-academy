@@ -16,7 +16,7 @@ export default function Footer() {
               The premier training ground for traditional South Asian stick-fighting, wrestling excellence, and high-performance combat conditioning.
             </p>
             <div className="footer-social-wrapper">
-              <a href="https://www.instagram.com/yoddhaacademy" className="footer-social-link" target="_blank" rel="noreferrer"><i className="fa-brands fa-instagram"></i></a>
+              <a href="https://www.instagram.com/yoddhaacademy.india?igsh=MWx4ODA2cmNocnJ6MA==" className="footer-social-link" target="_blank" rel="noreferrer"><i className="fa-brands fa-instagram"></i></a>
               <a href="https://www.facebook.com/489399877595936/" className="footer-social-link" target="_blank" rel="noreferrer"><i className="fa-brands fa-facebook-f"></i></a>
               <a href="https://wa.me/917766885311" className="footer-social-link" target="_blank" rel="noreferrer"><i className="fa-brands fa-whatsapp"></i></a>
               <a href="#" className="footer-social-link"><i className="fa-brands fa-youtube"></i></a>
