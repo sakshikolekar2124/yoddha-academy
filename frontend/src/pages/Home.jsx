@@ -11,7 +11,7 @@ export default function Home({ onOpenModal }) {
       id: 0,
       embedId: 'DRcHOmTkbkg',
       videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-man-holding-a-wushu-stick-40294-large.mp4',
-      thumbnail: '/images/lathi_kathi.jpg',
+      thumbnail: 'https://www.instagram.com/p/DRcHOmTkbkg/media/?size=l',
       title: 'Traditional Lathi flow speed drills',
       likes: '1.2K',
       comments: '84'
@@ -20,7 +20,7 @@ export default function Home({ onOpenModal }) {
       id: 1,
       embedId: 'DRW57SnDKvZ',
       videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-man-training-with-a-wushu-stick-40295-large.mp4',
-      thumbnail: '/images/gym_hero.jpg',
+      thumbnail: 'https://www.instagram.com/p/DRW57SnDKvZ/media/?size=l',
       title: 'Double stick deflection training',
       likes: '2.5K',
       comments: '120'
@@ -29,7 +29,7 @@ export default function Home({ onOpenModal }) {
       id: 2,
       embedId: 'DOm50hdjLdN',
       videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-shadow-boxing-in-a-dark-gym-40078-large.mp4',
-      thumbnail: '/images/lathi_kathi.jpg',
+      thumbnail: 'https://www.instagram.com/p/DOm50hdjLdN/media/?size=l',
       title: 'Conditioning & footwork base routine',
       likes: '920',
       comments: '42'
@@ -38,7 +38,7 @@ export default function Home({ onOpenModal }) {
       id: 3,
       embedId: 'DHCsJROCRyu',
       videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-girl-doing-martial-arts-moves-40291-large.mp4',
-      thumbnail: '/images/gym_hero.jpg',
+      thumbnail: 'https://www.instagram.com/p/DHCsJROCRyu/media/?size=l',
       title: 'Female stick fighter form demonstration',
       likes: '3.1K',
       comments: '168'
