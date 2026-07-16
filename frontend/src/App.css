@@ -75,14 +75,6 @@ a {
   z-index: 1050;
 }
 
-.navbar-custom > .container {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-}
-
 .navbar-custom.scrolled {
   padding: 0.75rem 0;
   background: rgba(10, 4, 6, 0.95);
@@ -1686,7 +1678,7 @@ input:checked + .slider-yoddha::before {
   display: none; /* Hide scrollbar for Chrome/Safari/Opera */
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
   .navbar-brand-yoddha {
     font-size: 1.15rem !important;
     gap: 0.4rem !important;
