@@ -211,32 +211,13 @@ export default function Home({ onOpenModal }) {
                   style={{ minHeight: '420px', height: '420px' }}
                   onClick={() => openReel(idx)}
                 >
-                  {/* Static cover photo using relative path for immediate, lightweight load */}
+                  {/* Clean Dynamic Cover Photo from Instagram Media Redirect */}
                   <img 
                     src={reel.thumbnail} 
                     alt={reel.title} 
                     className="w-100 h-100 position-absolute top-0 start-0"
                     style={{ objectFit: 'cover', minHeight: '420px', transition: 'transform 0.4s ease', zIndex: 1 }} 
                   />
-
-                  {/* Play Button Overlay */}
-                  <div className="position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-40 hover-dark-filter d-flex align-items-center justify-content-center" style={{ zIndex: 2 }}>
-                    <div className="bg-black bg-opacity-70 rounded-circle d-flex align-items-center justify-content-center border border-warning" style={{ width: '60px', height: '60px' }}>
-                      <i className="fa-solid fa-play text-warning fa-lg ms-1"></i>
-                    </div>
-                  </div>
-
-                  {/* Top Instagram Badge */}
-                  <div className="reel-badge position-absolute top-3 start-3 bg-black bg-opacity-70 text-white rounded-pill px-3 py-1 small d-flex align-items-center gap-2 border border-warning" style={{ zIndex: 10 }}>
-                    <i className="fa-brands fa-instagram text-warning"></i>
-                    <span style={{ fontSize: '0.75rem', fontWeight: 'bold' }}>REELS</span>
-                  </div>
-
-                  {/* Bottom caption overlay */}
-                  <div className="reel-caption-overlay position-absolute bottom-0 start-0 end-0 p-3 text-start" style={{ zIndex: 5, paddingTop: '40px' }}>
-                    <div className="text-warning small mb-1 fw-bold">@yoddhaacademy</div>
-                    <p className="text-white mb-0 small line-clamp-2" style={{ fontSize: '0.8rem', lineHeight: '1.25' }}>{reel.title}</p>
-                  </div>
                 </div>
               </div>
             ))}
