@@ -1676,3 +1676,14 @@ input:checked + .slider-yoddha::before {
 .reels-scroll-container::-webkit-scrollbar {
   display: none; /* Hide scrollbar for Chrome/Safari/Opera */
 }
+
+@media (max-width: 480px) {
+  .navbar-brand-yoddha {
+    font-size: 1.15rem !important;
+    gap: 0.4rem !important;
+  }
+  .brand-logo-img {
+    width: 32px !important;
+    height: 32px !important;
+  }
+}
