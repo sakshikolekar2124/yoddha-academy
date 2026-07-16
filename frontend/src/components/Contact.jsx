@@ -39,13 +39,7 @@ export default function Contact() {
                 </div>
               </div>
               
-              <div class="contact-item">
-                <div class="contact-icon-wrapper"><i class="fa-solid fa-clock"></i></div>
-                <div class="contact-details">
-                  <h4>Training Hours</h4>
-                  <p>Mon - Sat: 10:00 AM - 05:00 PM<br />Sunday: CLOSED</p>
-                </div>
-              </div>
+
             </div>
           </div>
           
