@@ -1694,20 +1694,53 @@ input:checked + .slider-yoddha::before {
   }
 }
 
-/* Reviews Page Feed Scrollbar Styling */
-.reviews-feed-wrapper {
-  max-height: 580px;
-  overflow-y: auto;
-  padding-right: 0.8rem;
+/* Infinite Vertical Reviews Marquee Styling */
+.reviews-marquee-container {
+  max-height: 520px;
+  overflow: hidden;
+  position: relative;
+  padding: 10px 0;
 }
-.reviews-feed-wrapper::-webkit-scrollbar {
-  width: 5px;
+
+/* Beautiful fading gradient masks at top and bottom */
+.reviews-marquee-container::before,
+.reviews-marquee-container::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 3;
+  pointer-events: none;
 }
-.reviews-feed-wrapper::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 4px;
+.reviews-marquee-container::before {
+  top: 0;
+  background: linear-gradient(to bottom, var(--bg-primary) 0%, rgba(10, 4, 6, 0) 100%);
 }
-.reviews-feed-wrapper::-webkit-scrollbar-thumb {
-  background: var(--accent-gold);
-  border-radius: 4px;
+.reviews-marquee-container::after {
+  bottom: 0;
+  background: linear-gradient(to top, var(--bg-primary) 0%, rgba(10, 4, 6, 0) 100%);
+}
+
+.reviews-marquee-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviews-marquee-inner.animate-marquee {
+  animation: verticalMarquee 35s linear infinite;
+}
+
+/* Pause animation on hover / touch so users can read */
+.reviews-marquee-container:hover .reviews-marquee-inner.animate-marquee {
+  animation-play-state: paused;
+}
+
+@keyframes verticalMarquee {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
 }
