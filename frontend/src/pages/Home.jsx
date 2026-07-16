@@ -203,7 +203,7 @@ export default function Home({ onOpenModal }) {
             </p>
           </div>
 
-          <div className="row g-4 justify-content-center">
+          <div className="row g-4 justify-content-center reels-showcase-row">
             {reelsList.map((reel, idx) => (
               <div key={reel.id} className="col-lg-3 col-md-6 col-sm-12" data-aos="zoom-in" data-aos-delay={reel.id * 100}>
                 <div 
