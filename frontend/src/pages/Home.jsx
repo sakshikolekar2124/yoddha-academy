@@ -4,7 +4,16 @@ import { Link } from 'react-router-dom';
 export default function Home({ onOpenModal }) {
   const [activeReelIndex, setActiveReelIndex] = useState(null);
   const [viewedCount, setViewedCount] = useState(0);
+  const [mutedStates, setMutedStates] = useState({ 0: true, 1: true, 2: true, 3: true });
   const containerRef = useRef(null);
+
+  const toggleMute = (idx, e) => {
+    e.stopPropagation();
+    setMutedStates(prev => ({
+      ...prev,
+      [idx]: !prev[idx]
+    }));
+  };
 
   const apiBase = window.API_BASE || '';
   const reelsList = [
@@ -212,13 +221,40 @@ export default function Home({ onOpenModal }) {
                   style={{ minHeight: '420px', height: '420px' }}
                   onClick={() => openReel(idx)}
                 >
-                  {/* Clean Dynamic Cover Photo from Instagram Media Redirect */}
-                  <img 
-                    src={reel.thumbnail} 
-                    alt="" 
+                  {/* Autoplay HTML5 Video Player */}
+                  <video 
+                    src={reel.videoUrl} 
                     className="w-100 h-100 position-absolute top-0 start-0"
-                    style={{ objectFit: 'cover', minHeight: '420px', transition: 'transform 0.4s ease', zIndex: 1 }} 
+                    style={{ objectFit: 'cover', minHeight: '420px', zIndex: 1 }}
+                    loop
+                    muted={mutedStates[idx] !== false}
+                    playsInline
+                    autoPlay
                   />
+
+                  {/* Speaker Mute/Unmute Toggle Button */}
+                  <button 
+                    className="reel-volume-btn"
+                    onClick={(e) => toggleMute(idx, e)}
+                    style={{
+                      position: 'absolute',
+                      bottom: '15px',
+                      right: '15px',
+                      zIndex: 10,
+                      width: '36px',
+                      height: '36px',
+                      borderRadius: '50%',
+                      background: 'rgba(0, 0, 0, 0.6)',
+                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#fff',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    <i className={mutedStates[idx] !== false ? "fa-solid fa-volume-xmark text-secondary" : "fa-solid fa-volume-high text-warning"}></i>
+                  </button>
                 </div>
               </div>
             ))}
