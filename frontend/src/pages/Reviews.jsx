@@ -97,7 +97,6 @@ export default function Reviews() {
       {/* Page Title Header */}
       <section className="py-5 bg-darker border-bottom border-light">
         <div className="container px-4 text-center mt-4">
-          <span className="section-tag">Practitioner Feedback</span>
           <h1 className="fw-900 text-uppercase mb-2">Student<span>Reviews</span></h1>
           <p className="text-secondary max-width-600 mx-auto">
             Read testimonials from our active athletes or share your own experience training at Yoddha Academy.

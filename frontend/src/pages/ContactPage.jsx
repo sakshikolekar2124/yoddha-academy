@@ -58,7 +58,6 @@ export default function ContactPage({ onSuccess }) {
       {/* Page Title Header */}
       <section className="py-5 bg-darker border-bottom border-light">
         <div className="container px-4 text-center mt-4">
-          <span className="section-tag">Find Us</span>
           <h1 className="fw-900 text-uppercase mb-2">Contact<span>Us</span></h1>
           <p className="text-secondary max-width-600 mx-auto">
             Get in touch, locate our physical arena in Ichalkaranji, or book a free trial training pass.

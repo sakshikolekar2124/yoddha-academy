@@ -29,7 +29,6 @@ export default function Success() {
       {/* Page Title Header */}
       <section className="py-5 bg-darker border-bottom border-light">
         <div className="container px-4 text-center mt-4">
-          <span className="section-tag">Glory & Pride</span>
           <h1 className="fw-900 text-uppercase mb-2">Student<span>Success</span></h1>
           <p className="text-secondary max-width-600 mx-auto">
             Discover the achievements, gold medals, and practitioner transformations that define Yoddha Academy.

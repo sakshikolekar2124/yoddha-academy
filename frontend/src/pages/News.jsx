@@ -22,7 +22,6 @@ export default function News() {
       {/* Page Title Header */}
       <section className="py-5 bg-darker border-bottom border-light">
         <div className="container px-4 text-center mt-4">
-          <span className="section-tag">Updates & Blogs</span>
           <h1 className="fw-900 text-uppercase mb-2">Academy<span>News</span></h1>
           <p className="text-secondary max-width-600 mx-auto">
             Stay updated with upcoming tournaments, ranking grading events, and Lathi Kathi speed seminars at Yoddha Academy.
