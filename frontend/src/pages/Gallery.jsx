@@ -22,7 +22,6 @@ export default function Gallery() {
       {/* Page Title Header */}
       <section className="py-5 bg-darker border-bottom border-light">
         <div className="container px-4 text-center mt-4">
-          <span className="section-tag">Arena Gallery</span>
           <h1 className="fw-900 text-uppercase mb-2">Academy<span>Gallery</span></h1>
           <p className="text-secondary max-width-600 mx-auto">
             Discover the daily training vibes, defensive weapon forms, and full-contact combat environments inside Yoddha Academy.
