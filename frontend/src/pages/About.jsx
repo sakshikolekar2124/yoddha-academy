@@ -8,7 +8,7 @@ export default function About() {
       <section className="py-5 bg-darker border-bottom border-light">
         <div className="container px-4 text-center mt-4">
           {/* <span className="section-tag">Who We Are</span> */}
-          <h1 className="fw-900 text-uppercase mb-2">About  Our  Academy</h1>
+          <h1 className="fw-900 text-uppercase mb-2" style={{ wordSpacing: '0.25em', letterSpacing: '0.02em' }}>About Our Academy</h1>
           <p className="text-secondary max-width-600 mx-auto">
             Discover the legacy, the values, and the expert coaching team behind Kolhapur's premier sports and combat arena.
           </p>
